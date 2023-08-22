@@ -6,4 +6,22 @@ const schema = Joi.object({
   phone: Joi.string().required(),
 });
 
+
+  // {
+  //   name: {
+  //     type: String,
+  //     required: [true, 'Set name for contact'],
+  //   },
+  //   email: {
+  //     type: String,
+  //   },
+  //   phone: {
+  //     type: String,
+  //   },
+  //   favorite: {
+  //     type: Boolean,
+  //     default: false,
+  //   },
+  // }
+
 module.exports = { schema };
