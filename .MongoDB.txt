@@ -1,9 +1,0 @@
-Регистрация:
-ravara
-vKqtfyp9iKEzsesI
-
-Админ:
-vadim
-K7MUuaXcmiGL8zhM
-
-const DB_HOST = 'mongodb+srv://vadim:K7MUuaXcmiGL8zhM@cluster0.zn74clk.mongodb.net/db-contacts?retryWrites=true&w=majority'
