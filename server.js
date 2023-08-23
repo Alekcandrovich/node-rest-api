@@ -23,5 +23,4 @@ try {
   process.exit(1);
  } finally {
     mongoose.disconnect();
-}
-
+};

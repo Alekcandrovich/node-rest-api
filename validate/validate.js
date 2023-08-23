@@ -1,5 +1,5 @@
 const validate = (schema) => {
-  const func = async (req, _, next) => {
+  const validator = async (req, _, next) => {
     try {
       await schema.validateAsync(req.body);
       next();
@@ -7,7 +7,7 @@ const validate = (schema) => {
       next({ status: 400, message: error.message });
     }
   };
-  return func;
+  return validator;
 };
 
 module.exports = validate;
