@@ -20,7 +20,7 @@ app.use((_, res) => {
 });
 
 app.use((err, _, res, __) => {
-  const { message = "unexpected server error" } = err;
+  const { message = "Unexpected server error" } = err;
   res.status(500).json({ message });
 });
 
