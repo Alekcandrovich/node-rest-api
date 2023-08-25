@@ -1,8 +1,8 @@
 const express = require("express");
 
-const control = require("../../controllers/controller");
-const { validateBody, validateId } = require("../../validates/validate");
-const { schemas } = require("../../models/contacts");
+const control = require("../../controllers/contactsr");
+const { validateBody, isValidId } = require("../../middlewares");
+const { schemas } = require("../../models/contact");
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.get(
 
 router.get(
   "/:contactId",
-  validateId,
+  isValidId,
   control.getById);
 
 router.post(
@@ -22,19 +22,19 @@ router.post(
 
 router.delete(
   "/:contactId",
-  validateId,
+  isValidId,
   control.remove);
 
 router.put(
   "/:contactId",
-  validateId,
+  isValidId,
   validateBody(schemas.addSchema),
   control.update
 );
 
 router.patch(
   "/:contactId/favorite",
-  validateId,
+  isValidId,
   validateBody(schemas.updateSchema),
   control.updateStatus
 );
