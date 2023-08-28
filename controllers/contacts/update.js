@@ -8,7 +8,7 @@ const update = async (req, res) => {
     new: true,
   });
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404, "Не найдено");
   }
   res.json(result);
 };

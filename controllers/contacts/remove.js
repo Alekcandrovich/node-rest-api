@@ -6,10 +6,10 @@ const remove = async (req, res) => {
   const { contactId } = req.params;
   const result = await Contact.findByIdAndRemove(contactId);
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404, "Не найдено");
   }
-    res.json({ message: "Contact deleted" });
-    console.log("Сontact successfully deleted");
+    res.json({ message: "Контакт удален" });
+    console.log("Контакт успешно удален");
 };
 
 module.exports = remove;

@@ -10,7 +10,7 @@ const register = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user) {
-    throw HttpError(409, "Email in use");
+    throw HttpError(409, "Эта электронная почта ужеииспользуется");
   }
 
   const result = await User.create({ ...req.body, password: hash });

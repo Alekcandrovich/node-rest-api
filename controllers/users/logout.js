@@ -8,7 +8,7 @@ const logout = async (req, res) => {
     throw HttpError(401);
   }
   await User.findByIdAndUpdate(_id, { token: "" });
-  res.status(204).json({ message: "Logout successfully" });
+  res.status(204).json({ message: "Вы успешно вышли из аккаунта" });
 };
 
 module.exports = logout;
