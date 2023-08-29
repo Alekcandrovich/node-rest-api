@@ -10,6 +10,7 @@ const updateStatus = async (req, res) => {
   if (!result) {
     throw HttpError(404, "Не найдено");
   }
+  console.log(result);
   res.json(result);
 };
 

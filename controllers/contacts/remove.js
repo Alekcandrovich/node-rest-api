@@ -8,8 +8,9 @@ const remove = async (req, res) => {
   if (!result) {
     throw HttpError(404, "Не найдено");
   }
-    res.json({ message: "Контакт удален" });
-    console.log("Контакт успешно удален");
+    console.log("Контакт удален");
+    res.json({ message: "Контакт успешно удален" });
+  
 };
 
 module.exports = remove;
