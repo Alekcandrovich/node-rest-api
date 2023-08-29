@@ -1,4 +1,4 @@
-const getCurrent = (req, res) => {
+const get = (req, res) => {
   const { email, subscription } = req.user;
 
   res.json({
@@ -7,4 +7,4 @@ const getCurrent = (req, res) => {
   });
 };
 
-module.exports = getCurrent;
+module.exports = get;
