@@ -1,7 +1,7 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcrypt');
 
-const { User } = require("../../models/user");
-const { HttpError } = require("../../helpers");
+const { User } = require('../../models/user');
+const { HttpError } = require('../../helpers');
 
 const register = async (req, res) => {
   const { email, password } = req.body;
@@ -10,7 +10,7 @@ const register = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user) {
-    throw HttpError(409, "Эта электронная почта ужеииспользуется");
+    throw HttpError(409, 'Эта электронная почта уже используется');
   }
 
   const result = await User.create({ ...req.body, password: hash });

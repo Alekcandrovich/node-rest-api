@@ -1,6 +1,5 @@
-const { Contact } = require("../../models/contact");
-
-const { HttpError } = require("../../helpers");
+const { Contact } = require('../../models/contact');
+const { HttpError } = require('../../helpers');
 
 const updateStatus = async (req, res) => {
   const { contactId } = req.params;
@@ -8,8 +7,9 @@ const updateStatus = async (req, res) => {
     new: true,
   });
   if (!result) {
-    throw HttpError(404, "Не найдено");
+    throw HttpError(404, 'Не найдено');
   }
+
   console.log(result);
   res.json(result);
 };
