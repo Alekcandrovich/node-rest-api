@@ -7,7 +7,7 @@ const contactSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, 'Введите имя контакта'],
+      required: [true, 'Имя контакта'],
     },
     email: {
       type: String,
