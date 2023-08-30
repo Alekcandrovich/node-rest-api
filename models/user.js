@@ -7,25 +7,25 @@ const subscriptions = ['starter', 'pro', 'business'];
 
 const userSchema = new Schema(
   {
-    password: {
-      type: String,
-      minlength: 8,
-      required: [true, 'Пароль пользователя'],
-    },
     email: {
       type: String,
       match: emailRegexp,
-      required: [true, 'Адрес электронной почты'],
+      required: [true, "Адрес электронной почты"],
       unique: true,
+    },
+    password: {
+      type: String,
+      minlength: 8,
+      required: [true, "Пароль пользователя"],
     },
     subscription: {
       type: String,
       enum: subscriptions,
-      default: 'starter',
+      default: "starter",
     },
     token: {
       type: String,
-      default: '',
+      default: "",
     },
   },
   { versionKey: false, timestamps: true }
@@ -33,18 +33,18 @@ const userSchema = new Schema(
 
 userSchema.post('save', handleError);
 
-const registerSchema = Joi.object({
+const regSchema = Joi.object({
   password: Joi.string().min(8).required(),
   email: Joi.string().pattern(emailRegexp).required(),
   subscription: Joi.string().valid(...subscriptions),
 });
 
-const loginSchema = Joi.object({
+const logSchema = Joi.object({
   password: Joi.string().min(8).required(),
   email: Joi.string().pattern(emailRegexp).required(),
 });
 
-const updateStatusSchema = Joi.object({
+const updateSchema = Joi.object({
   subscription: Joi.string()
     .valid(...subscriptions)
     .required(),
@@ -52,6 +52,13 @@ const updateStatusSchema = Joi.object({
 
 const User = model('user', userSchema);
 
-const schemas = { registerSchema, loginSchema, updateStatusSchema };
+const schemas = {
+  regSchema,
+  logSchema,
+  updateSchema
+};
 
-module.exports = { User, schemas };
+module.exports = {
+  User,
+  schemas
+};
