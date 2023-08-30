@@ -44,7 +44,7 @@ const logSchema = Joi.object({
   email: Joi.string().pattern(emailRegexp).required(),
 });
 
-const updateStatusSchema = Joi.object({
+const updateSchema = Joi.object({
   subscription: Joi.string()
     .valid(...subscriptions)
     .required(),
@@ -55,7 +55,7 @@ const User = model('user', userSchema);
 const schemas = {
   regSchema,
   logSchema,
-  updateStatusSchema
+  updateSchema
 };
 
 module.exports = {
