@@ -33,13 +33,13 @@ const userSchema = new Schema(
 
 userSchema.post('save', handleError);
 
-const registerSchema = Joi.object({
+const regSchema = Joi.object({
   password: Joi.string().min(8).required(),
   email: Joi.string().pattern(emailRegexp).required(),
   subscription: Joi.string().valid(...subscriptions),
 });
 
-const loginSchema = Joi.object({
+const logSchema = Joi.object({
   password: Joi.string().min(8).required(),
   email: Joi.string().pattern(emailRegexp).required(),
 });
@@ -52,6 +52,13 @@ const updateStatusSchema = Joi.object({
 
 const User = model('user', userSchema);
 
-const schemas = { registerSchema, loginSchema, updateStatusSchema };
+const schemas = {
+  regSchema,
+  logSchema,
+  updateStatusSchema
+};
 
-module.exports = { User, schemas };
+module.exports = {
+  User,
+  schemas
+};
