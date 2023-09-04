@@ -21,8 +21,8 @@ app.use((_, res) => {
 });
 
 app.use((err, _, res, __) => {
-  const { message = 'Неожиданная ошибка сервера' } = err;
-  res.status(500).json({ message });
+  const { message = "Неожиданная ошибка сервера" } = err;
+  res.status(500).json({ message, stack: err.stack });
 });
 
 module.exports = app;
