@@ -1,3 +1,5 @@
+require('colors');
+
 const mongoose = require('mongoose');
 
 const app = require('./app');
@@ -10,7 +12,7 @@ mongoose
   .connect(DB_HOST)
   .then(() => {
     app.listen(PORT, () => {
-      console.log('Подключение к базе данных выполнено успешно');
+      console.log('Подключение к базе данных выполнено успешно'.green.bold);
     });
   })
   .catch((error) => {

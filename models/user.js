@@ -10,22 +10,22 @@ const userSchema = new Schema(
     email: {
       type: String,
       match: emailRegexp,
-      required: [true, "Адрес электронной почты"],
+      required: [true, 'Адрес электронной почты'],
       unique: true,
     },
     password: {
       type: String,
       minlength: 8,
-      required: [true, "Пароль пользователя"],
+      required: [true, 'Пароль пользователя'],
     },
     subscription: {
       type: String,
       enum: subscriptions,
-      default: "starter",
+      default: 'starter',
     },
     token: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   { versionKey: false, timestamps: true }
