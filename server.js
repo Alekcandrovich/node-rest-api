@@ -12,7 +12,7 @@ mongoose
   .connect(DB_HOST)
   .then(() => {
     app.listen(PORT, () => {
-      console.log('Подключение к базе данных выполнено успешно'.green.bold);
+      console.log('Подключение к базе данных выполнено успешно'.blue.bold);
     });
   })
   .catch((error) => {
