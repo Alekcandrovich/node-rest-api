@@ -13,6 +13,7 @@ const router = express.Router();
 
 router.get(
   '/',
+  auth,
   control.list
 );
 
