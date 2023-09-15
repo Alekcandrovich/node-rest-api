@@ -31,6 +31,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    veryfy: {
+      type: Boolean,
+      default: false,
+    },
+    verifyToken: {
+      type: String,
+      default: '',
+    }
   },
   { versionKey: false, timestamps: true }
 );
@@ -54,12 +62,17 @@ const updateSchema = Joi.object({
     .required(),
 });
 
+const emailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required(),
+})
+
 const User = model('user', userSchema);
 
 const schemas = {
   regSchema,
   logSchema,
-  updateSchema
+  updateSchema,
+  emailSchema
 };
 
 module.exports = {
