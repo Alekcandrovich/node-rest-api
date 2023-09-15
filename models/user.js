@@ -31,13 +31,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    veryfy: {
+    verify: {
       type: Boolean,
       default: false,
     },
     verifyToken: {
       type: String,
-      default: '',
+      default: null,
     }
   },
   { versionKey: false, timestamps: true }
