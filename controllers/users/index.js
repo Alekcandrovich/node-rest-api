@@ -6,8 +6,8 @@ const logout = require('./logout');
 const register = require('./register');
 const updateStatus = require('./updateStatus');
 const updateAvatar = require('./updateAvatar');
-const verifyEmail = require('./verifyEmail');
-const resend = require('./resend');
+const verifyEmail = require('../../services/verifyEmail');
+const resend = require('../../services/resend');
 
 module.exports = {
   getCurrent: ctrlWrapper(get),

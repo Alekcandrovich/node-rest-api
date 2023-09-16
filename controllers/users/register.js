@@ -1,6 +1,6 @@
 const { User } = require('../../models/user');
 const { HttpError } = require('../../helpers');
-const sendMail = require('../../helpers/sendMail');
+const sendMail = require('../../services/sendMail');
 
 const bcrypt = require('bcrypt');
 const gravatar = require('gravatar');
@@ -21,7 +21,12 @@ const register = async (req, res) => {
   const verifyToken = crypto.randomUUID();
 
   const avatarURL = gravatar.url(email);
-  const result = await User.create({ ...req.body, password: hash, avatarURL, verifyToken });
+  const result = await User.create({
+    ...req.body,
+    password: hash,
+    avatarURL,
+    verifyToken,
+  });
 
   await sendMail({
     to: email,
