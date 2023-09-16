@@ -1,6 +1,6 @@
-const { User } = require('../../models/user');
-const { HttpError } = require('../../helpers');
-const sendMail = require('../../helpers/sendMail');
+const { User } = require('../models/user');
+const { HttpError } = require('../helpers');
+const sendMail = require('./sendMail');
 
 const { BASE_URL } = process.env;
 
@@ -25,7 +25,7 @@ const resend = async (req, res) => {
   });
 
   res.status(200).json({
-    message: 'Проверка электронной почты успешно выполнена'
+    message: 'Проверка электронной почты успешно выполнена',
   });
 };
 
